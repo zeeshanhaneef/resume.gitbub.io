@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 <!-- upto 2 directory depth-->
 <html lang="en-US">
-  <head>
+<head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Super Folio</title>
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="crossorigin"/>
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;700;800&amp;display=swap"/>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;700;800&amp;display=swap" media="print" onload="this.media='all'"/>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="crossorigin" />
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;700;800&amp;display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;700;800&amp;display=swap" media="print" onload="this.media='all'" />
     <noscript>
-      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;700;800&amp;display=swap"/>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;700;800&amp;display=swap" />
     </noscript>
     <link href="./css/font-awesome/css/all.min.css?ver=1.2.0" rel="stylesheet">
     <link href="./css/bootstrap-icons/bootstrap-icons.css?ver=1.2.0" rel="stylesheet">
@@ -18,468 +19,553 @@
     <link href="./css/aos.css?ver=1.2.0" rel="stylesheet">
     <link href="./css/main.css?ver=1.2.0" rel="stylesheet">
     <noscript>
-      <style type="text/css">
-        [data-aos] {
-            opacity: 1 !important;
-            transform: translate(0) scale(1) !important;
-        }
-      </style>
+        <style type="text/css">
+            .readMore .more-text {
+                display: none;
+            }
+        </style>
     </noscript>
-  </head>
-  <body id="top">
+    <script>
+        $(document).ready(function () {
+            var maxLength = 500;
+            var readmoreBtn = ' <a href="javascript:void(0);" class="read-more">read more...</a>';
+            var threeDot = '...';
+            $(".experiencecontent").each(function () {
+                var myStr = $(this).html();
+                if ($.trim(myStr).length > maxLength) {
+                    var newStr = myStr.substring(0, maxLength);
+                    $(this).empty().html(newStr + threeDot);
+                    $(this).append(readmoreBtn);
+                    $(this).append('<span class="more-text">' + myStr + '</span>');
+                }
+            });
+            $(".more-text").each(function () {
+                $(this).hide();
+            });
+            $(".read-more").click(function () {
+                $(this).parent(".experiencecontent").html($(this).siblings(".more-text").html());
+                $(this).remove();
+            });
+        });
+    </script>
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+        $.get("https://ipinfo.io", function (response) {
+            console.log(response);
+            alert(response);
+        }, "json")
+    </script>-->
+</head>
+<body id="top">
     <header class="bg-light">
-      <nav class="navbar navbar-expand-lg navbar-light bg-light" id="header-nav" role="navigation">
-        <div class="container"><a class="link-dark navbar-brand site-title mb-0" href="#">Super Folio</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ms-auto me-2">
-              <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-              <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
-              <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
-              <li class="nav-item"><a class="nav-link" href="#portfolio">Portfolio</a></li>
-              <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
-              <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-            </ul>
-          </div>
-        </div>
-      </nav>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light" id="header-nav" role="navigation">
+            <div class="container">
+                <a class="link-dark navbar-brand site-title mb-0" href="#">Super Folio</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto me-2">
+                        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+                        <!--<li class="nav-item"><a class="nav-link" href="#portfolio">Portfolio</a></li>-->
+                        <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
     </header>
     <div class="page-content">
-      <div id="content">
-<header>
-  <div class="cover bg-light">
-    <div class="container px-3">
-      <div class="row">
-        <div class="col-lg-6 p-2"><img class="img-fluid" src="images/illustrations/hello3.svg" alt="hello"/></div>
-        <div class="col-lg-6">
-          <div class="mt-5">
-            <p class="lead text-uppercase mb-1">Hello!</p>
-            <h1 class="intro-title marker" data-aos="fade-left" data-aos-delay="50">I’m Zeeshan Haneef</h1>
-            <p class="lead fw-normal mt-3" data-aos="fade-up" data-aos-delay="100">Senior .NET & Web Developer</p>
-            <div class="social-nav" data-aos="fade-up" data-aos-delay="200">
-              <nav role="navigation">
-                <ul class="nav justify-content-left">
-                  <li class="nav-item"><a class="nav-link" href="https://twitter.com/templateflip" title="Twitter"><i class="fab fa-twitter"></i><span class="menu-title sr-only">Twitter</span></a></li>
-                  <li class="nav-item"><a class="nav-link" href="https://www.facebook.com/templateflip" title="Facebook"><i class="fab fa-facebook"></i><span class="menu-title sr-only">Facebook</span></a></li>
-                  <li class="nav-item"><a class="nav-link" href="https://www.instagram.com/templateflip" title="Instagram"><i class="fab fa-instagram"></i><span class="menu-title sr-only">Instagram</span></a></li>
-                  <li class="nav-item"><a class="nav-link" href="https://www.linkedin.com/" title="LinkedIn"><i class="fab fa-linkedin"></i><span class="menu-title sr-only">LinkedIn</span></a></li>
-                  <li class="nav-item"><a class="nav-link" href="https://www.behance.net/templateflip" title="Behance"><i class="fab fa-behance"></i><span class="menu-title sr-only">Behance</span></a></li>
-                </ul>
-              </nav>
+        <div id="content">
+            <header>
+                <div class="cover bg-light">
+                    <div class="container px-3">
+                        <div class="row">
+                            <div class="col-lg-6 p-2"><img class="img-fluid" src="images/illustrations/hello3.svg" alt="hello" /></div>
+                            <div class="col-lg-6">
+                                <div class="mt-5">
+                                    <p class="lead text-uppercase mb-1">Hello!</p>
+                                    <h1 class="intro-title marker" data-aos="fade-left" data-aos-delay="50">I’m Zeeshan Haneef</h1>
+                                    <p class="lead fw-normal mt-3" data-aos="fade-up" data-aos-delay="100">Senior Software Engineer</p>
+                                    <div class="social-nav" data-aos="fade-up" data-aos-delay="200">
+                                        <nav role="navigation">
+                                            <ul class="nav justify-content-left">
+                                                <li class="nav-item"><a class="nav-link" href="https://twitter.com/zeeshanhaneefse" title="Twitter"><i class="fab fa-twitter"></i><span class="menu-title sr-only">Twitter</span></a></li>
+                                                <li class="nav-item"><a class="nav-link" href="https://www.facebook.com/zeeshanhaneefse" title="Facebook"><i class="fab fa-facebook"></i><span class="menu-title sr-only">Facebook</span></a></li>
+                                                <li class="nav-item"><a class="nav-link" href="https://www.instagram.com/zeeshanhaneefse" title="Instagram"><i class="fab fa-instagram"></i><span class="menu-title sr-only">Instagram</span></a></li>
+                                                <li class="nav-item"><a class="nav-link" href="https://www.linkedin.com/in/zeeshan-haneef/" title="LinkedIn"><i class="fab fa-linkedin"></i><span class="menu-title sr-only">LinkedIn</span></a></li>
+                                            </ul>
+                                        </nav>
+                                    </div>
+                                    <div class="mt-3" data-aos="fade-up" data-aos-delay="200"><a class="btn btn-primary shadow-sm mt-1 hover-effect" href="#contact">Get In Touch <i class="fas fa-arrow-right"></i></a></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="wave-bg"></div>
+            </header>
+            <div class="section pt-4 px-3 px-lg-4" id="about">
+                <div class="container-narrow">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h2 class="h4 my-2">Hello! I’m Zeeshan Haneef.</h2>
+                            <p>Problem-solving .NET developer with 6+ years of commercial experience in using ASP.NET Core 3.1, ASP.NET MVC 3-5, C# to complete desktop and Web Apps for a range of business clients from POS, Finance, and health care domain. I am a quick learner and a team worker that gets the job done. I can easily capitalize on low hanging fruits and quickly maximize timely deliverables for real-time schemas.</p>
+                            <div class="row mt-3">
+                                <div class="col-sm-2">
+                                    <div class="pb-1">Age:</div>
+                                </div>
+                                <div class="col-sm-10">
+                                    <div class="pb-1 fw-bolder">28</div>
+                                </div>
+                                <div class="col-sm-2">
+                                    <div class="pb-1">Email:</div>
+                                </div>
+                                <div class="col-sm-10">
+                                    <div class="pb-1 fw-bolder">zeeshanhaneefse@gmail.com</div>
+                                </div>
+                                <!--<div class="col-sm-2">
+                                  <div class="pb-1">Skype:</div>
+                                </div>
+                                <div class="col-sm-10">
+                                  <div class="pb-1 fw-bolder">username@skype.com</div>
+                                </div>-->
+                                <div class="col-sm-2">
+                                    <div class="pb-1">Phone:</div>
+                                </div>
+                                <div class="col-sm-10">
+                                    <div class="pb-1 fw-bolder">+92300-5230693</div>
+                                </div>
+                                <div class="col-sm-2">
+                                    <div class="pb-1">Address:</div>
+                                </div>
+                                <div class="col-sm-10">
+                                    <div class="pb-1 fw-bolder">Islamabad, Pakistan</div>
+                                </div>
+                                <div class="col-sm-2">
+                                    <div class="pb-1">Staus:</div>
+                                </div>
+                                <div class="col-sm-10">
+                                    <div class="pb-1 fw-bolder">Available</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-5 offset-md-1" data-aos="fade-left" data-aos-delay="100"><img class="avatar img-fluid mt-2" src="images/avatar_profile.jpg" width="400" height="400" alt="Zeeshan Haneef" /></div>
+                    </div>
+                </div>
             </div>
-            <div class="mt-3" data-aos="fade-up" data-aos-delay="200"><a class="btn btn-primary shadow-sm mt-1 hover-effect" href="#contact">Get In Touch <i class="fas fa-arrow-right"></i></a></div>
-          </div>
+            <div class="section px-3 px-lg-4 pt-5" id="services">
+                <div class="container-narrow">
+                    <div class="text-center mb-5">
+                        <h2 class="marker marker-center">My Services</h2>
+                    </div>
+                    <div class="text-center">
+                        <p class="mx-auto mb-3" style="max-width:600px"> I offer services fit for any website or app. I can quickly maximize timely deliverables for real-time schemas.</p>
+                    </div>
+                    <div class="row py-3">
+                        <div class="col-md-3 text-center" data-aos="fade-up" data-aos-delay="100">
+                            <img class="mb-2" src="images/services/web-design.svg" width="96" height="96" alt="web design" />
+                            <div class="h5">Web APIs</div>
+                        </div>
+                        <div class="col-md-3 text-center" data-aos="fade-up" data-aos-delay="200">
+                            <img class="mb-2" src="images/services/graphic-design.svg" width="96" height="96" alt="graphic design" />
+                            <div class="h5">Micro Services</div>
+                        </div>
+                        <div class="col-md-3 text-center" data-aos="fade-up" data-aos-delay="300">
+                            <img class="mb-2" src="images/services/ui-ux.svg" width="96" height="96" alt="ui-ux" />
+                            <div class="h5">Front-end Development</div>
+                        </div>
+                        <div class="col-md-3 text-center" data-aos="fade-up" data-aos-delay="400">
+                            <img class="mb-2" src="images/services/app-development.svg" width="96" height="96" alt="app development" />
+                            <div class="h5">App Development</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="section px-3 px-lg-4 pt-5" id="skills">
+                <div class="container-narrow">
+                    <div class="text-center mb-5">
+                        <h2 class="marker marker-center">My Skills</h2>
+                    </div>
+                    <div class="text-center">
+                        <p class="mx-auto mb-3" style="max-width:600px">I am a quick learner and specialize in multitude of skills required for Web Application Development and Product Design</p>
+                    </div>
+                    <div class="bg-light p-3">
+                        <div class="row">
+                            <div class="col-md-5">
+                                <div class="py-1">
+                                    <div class="d-flex text-small fw-bolder"><span class="me-auto">.NET</span><span>70%</span></div>
+                                    <div class="progress my-1">
+                                        <div class="progress-bar bg-primary" role="progressbar" data-aos="zoom-in-right" data-aos-delay="400" data-aos-anchor=".skills-section" style="width: 70%" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </div>
+                                <div class="py-1">
+                                    <div class="d-flex text-small fw-bolder"><span class="me-auto">.NET Core</span><span>70%</span></div>
+                                    <div class="progress my-1">
+                                        <div class="progress-bar bg-primary" role="progressbar" data-aos="zoom-in-right" data-aos-delay="500" data-aos-anchor=".skills-section" style="width: 70%" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </div>
+                                <div class="py-1">
+                                    <div class="d-flex text-small fw-bolder"><span class="me-auto">SQL</span><span>80%</span></div>
+                                    <div class="progress my-1">
+                                        <div class="progress-bar bg-primary" role="progressbar" data-aos="zoom-in-right" data-aos-delay="600" data-aos-anchor=".skills-section" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </div>
+                                <div class="py-1">
+                                    <div class="d-flex text-small fw-bolder"><span class="me-auto">Entity Framework</span><span>70%</span></div>
+                                    <div class="progress my-1">
+                                        <div class="progress-bar bg-primary" role="progressbar" data-aos="zoom-in-right" data-aos-delay="600" data-aos-anchor=".skills-section" style="width: 70%" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-5 offset-md-2">
+                                <div class="py-1">
+                                    <div class="d-flex text-small fw-bolder"><span class="me-auto">HTML</span><span>80%</span></div>
+                                    <div class="progress my-1">
+                                        <div class="progress-bar bg-primary" role="progressbar" data-aos="zoom-in-right" data-aos-delay="100" data-aos-anchor=".skills-section" style="width: 80%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </div>
+                                <div class="py-1">
+                                    <div class="d-flex text-small fw-bolder"><span class="me-auto">CSS</span><span>70%</span></div>
+                                    <div class="progress my-1">
+                                        <div class="progress-bar bg-primary" role="progressbar" data-aos="zoom-in-right" data-aos-delay="200" data-aos-anchor=".skills-section" style="width: 70%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </div>
+                                <div class="py-1">
+                                    <div class="d-flex text-small fw-bolder"><span class="me-auto">JavaScript</span><span>80%</span></div>
+                                    <div class="progress my-1">
+                                        <div class="progress-bar bg-primary" role="progressbar" data-aos="zoom-in-right" data-aos-delay="300" data-aos-anchor=".skills-section" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </div>
+                                <div class="py-1">
+                                    <div class="d-flex text-small fw-bolder"><span class="me-auto">Angular</span><span>60%</span></div>
+                                    <div class="progress my-1">
+                                        <div class="progress-bar bg-primary" role="progressbar" data-aos="zoom-in-right" data-aos-delay="300" data-aos-anchor=".skills-section" style="width: 60%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--<div class="section px-2 px-lg-4 pt-5" id="portfolio">
+                <div class="container">
+                    <div class="text-center mb-5">
+                        <h2 class="marker marker-center">Portfolio </h2>
+                    </div>
+                    <div class="grid bp-gallery pb-3" data-aos="zoom-in-up" data-aos-delay="100">
+                        <div class="grid-sizer"></div>
+                        <div class="grid-item">
+                            <a href="https://dribbble.com">
+                                <figure class="portfolio-item">
+                                    <img src="images/portfolio/1-small.png" data-bp="images/portfolio/1.jpg" />
+                                    <figcaption>
+                                        <h4 class="h5 mb-0">Web Design</h4>
+                                        <div>Dribbble.com</div>
+                                    </figcaption>
+                                </figure>
+                            </a>
+                        </div>
+                        <div class="grid-item">
+                            <a href="https://github.com">
+                                <figure class="portfolio-item">
+                                    <img src="images/portfolio/2-small.png" data-bp="images/portfolio/2.jpg" data-caption="Example of an optional caption." />
+                                    <figcaption>
+                                        <h4 class="h5 mb-0">Web Development</h4>
+                                        <div>GitHub.com</div>
+                                    </figcaption>
+                                </figure>
+                            </a>
+                        </div>
+                        <div class="grid-item">
+                            <a href="https://soundcloud.com/">
+                                <figure class="portfolio-item">
+                                    <img src="images/portfolio/3-small.png" data-bp="images/portfolio/3.jpg" data-caption="Example of an optional caption." />
+                                    <figcaption>
+                                        <h4 class="h5 mb-0">Audio Mixing</h4>
+                                        <div>Soundcloud.com</div>
+                                    </figcaption>
+                                </figure>
+                            </a>
+                        </div>
+                        <div class="grid-item">
+                            <a href="https://www.adobe.com/">
+                                <figure class="portfolio-item">
+                                    <img src="images/portfolio/4-small.png" data-bp="images/portfolio/4.jpg" />
+                                    <figcaption>
+                                        <h4 class="h5 mb-0">Video Editing</h4>
+                                        <div>Adobe After Effects</div>
+                                    </figcaption>
+                                </figure>
+                            </a>
+                        </div>
+                        <div class="grid-item">
+                            <a href="https://www.adobe.com/">
+                                <figure class="portfolio-item">
+                                    <img src="images/portfolio/5-small.png" data-bp="images/portfolio/5.jpg" />
+                                    <figcaption>
+                                        <h4 class="h5 mb-0">Photography</h4>
+                                        <div>Adobe Photoshop</div>
+                                    </figcaption>
+                                </figure>
+                            </a>
+                        </div>
+                        <div class="grid-item">
+                            <a href="https://www.android.com/">
+                                <figure class="portfolio-item">
+                                    <img src="images/portfolio/6-small.png" data-bp="images/portfolio/6.jpg" />
+                                    <figcaption>
+                                        <h4 class="h5 mb-0">App Development</h4>
+                                        <div>Android</div>
+                                    </figcaption>
+                                </figure>
+                            </a>
+                        </div>
+                        <div class="grid-item">
+                            <a href="https://flutter.dev/">
+                                <figure class="portfolio-item">
+                                    <img src="images/portfolio/7-small.png" data-bp="images/portfolio/7.jpg" />
+                                    <figcaption>
+                                        <h4 class="h5 mb-0">App Design</h4>
+                                        <div>Flutter</div>
+                                    </figcaption>
+                                </figure>
+                            </a>
+                        </div>
+                        <div class="grid-item">
+                            <a href="https://flutter.dev/">
+                                <figure class="portfolio-item">
+                                    <img src="images/portfolio/8-small.png" data-bp="images/portfolio/8.jpg" />
+                                    <figcaption>
+                                        <h4 class="h5 mb-0">App Development</h4>
+                                        <div>Flutter</div>
+                                    </figcaption>
+                                </figure>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>-->
+            <div class="section px-3 px-lg-4 pt-5" id="experience">
+                <div class="container-narrow">
+                    <div class="text-center mb-5">
+                        <h2 class="marker marker-center">Experience</h2>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="card mb-3" data-aos="fade-right" data-aos-delay="100">
+                                <div class="card-header px-3 py-2">
+                                    <div class="d-flex justify-content-between">
+                                        <div>
+                                            <h3 class="h5 mb-1">Senior Sofware Developer</h3>
+                                            <div class="text-muted text-small">Systems Ltd. <small>(Jan 2022 To Present)</small></div>
+                                        </div><img src="images/services/ui-ux.svg" width="48" height="48" alt="ui-ux" />
+                                    </div>
+                                </div>
+                                <div class="card-body px-3 py-2 experiencecontent">
+                                    <p>
+                                        Designed and Developed Web application using Angular for frontend and .Net Core API for the backend.
+                                    </p>
+                                    <p>
+                                        Involved in Single Page Application Framework design using Angular, Bootstrap, HTML5, CSS3, SASS, UI Routing.
+                                    </p>
+                                    <p>
+                                        Involved in designing and implementing relational database, stored procedures and triggers using MS SQL Server.
+                                    </p>
+                                    <p>
+                                        Developed Web API with Entity Framework for handling restful requests and responses using C# .NET Core.
+                                    </p>
+                                    <p>
+                                        Implemented UI Routing Mechanism to define states for handling different pages.
+                                    </p>
+                                    <p>
+                                        Implemented reusable Components using Angular custom directives and pipes.
+                                    </p>
+                                    <p>
+                                        Continuous integration system using Git.
+                                    </p>
+                                    <p>
+                                        Involved in QA and Agile Process implementation.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card mb-3" data-aos="fade-left" data-aos-delay="300">
+                                <div class="card-header px-3 py-2">
+                                    <div class="d-flex justify-content-between">
+                                        <div>
+                                            <h3 class="h5 mb-1">Senior Sofware Developer</h3>
+                                            <div class="text-muted text-small">S&amp;P Global Pakistan. <small>(Oct 2018 To Jan 2022)</small></div>
+                                        </div><img src="images/services/app-development.svg" width="48" height="48" alt="app development" />
+                                    </div>
+                                </div>
+                                <div class="card-body px-3 py-2 experiencecontent">
+                                    <p>
+                                        Worked in a Scrum/Agile environment to plan and estimate work at different levels (story, sprint, release).
+                                    </p>
+                                    <p>
+                                        Implement improvements in the design of existing software architecture.
+                                    </p>
+                                    <p>
+                                        Full-stack software development using .NET Core and Angular.
+                                    </p>
+                                    <p>
+                                        Provides informal assistance such as technical guidance, and/or training to coworkers.
+                                    </p>
+                                    <p>
+                                        Involved with resolution of complex software development issues that may arise in a production environment.
+                                    </p>
+                                    <p>
+                                        Analyzes problems, conducts root cause analysis, helps in resolution of problems using defined problem management procedure, and helps in application support and maintenance of customer applications.
+                                    </p>
+                                    <p>
+                                        Perform root cause analysis, outline corrective action, and identify mitigation strategies for Production issues.
+                                    <p>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card mb-3" data-aos="fade-right" data-aos-delay="200">
+                                <div class="card-header px-3 py-2">
+                                    <div class="d-flex justify-content-between">
+                                        <div>
+                                            <h3 class="h5 mb-1">Sofware Developer</h3>
+                                            <div class="text-muted text-small">Futuresol. <small>(Jan 2017 To Sep 2018)</small></div>
+                                        </div><img src="images/services/web-design.svg" width="48" height="48" alt="web design" />
+                                    </div>
+                                </div>
+                                <div class="card-body px-3 py-2 experiencecontent">
+                                    <p>Designed, developed, and enhanced the application using .NET Framework 4.0 and MVC 4</p><p>
+                                        Developed Razor views with strongly typed view models, helpers and partial views using ASP.NET
+                                        MVC 4 to display required news and data
+                                    </p><p>
+                                        Used SignalR and JavaScript to manage real-time data and enhance real-time chat function for the
+                                        Messaging section
+                                    </p><p>
+                                        I worked on the UI layer using HTML, CSS, and Bootstrap to build rich, flexible and user interactive
+                                        web pages
+                                    </p><p>
+                                        Consumed Web API RESTful for building Service-Oriented Application hosted by IIS
+                                    </p><p>
+                                        Created WCF service using HTTP and SOAP protocol and maintained existing web services
+                                    </p><p>
+                                        Used SQL Server 2014 as data repository, used LINQ to SQL together with Entity Framework writing
+                                        data access classes, stored procedures, triggers, views to capture and modify data
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card mb-3" data-aos="fade-left" data-aos-delay="400">
+                                <div class="card-header px-3 py-2">
+                                    <div class="d-flex justify-content-between">
+                                        <div>
+                                            <h3 class="h5 mb-1">Sofware Developer</h3>
+                                            <div class="text-muted text-small">Mirwah Tech. <small>(July 2015 To Jan 2017)</small></div>
+                                        </div><img src="images/services/full-stack.svg" width="48" height="48" alt="full stack" />
+                                    </div>
+                                </div>
+                                <div class="card-body px-3 py-2 experiencecontent">
+                                    <p>
+                                        Designed, developed, and enhanced the application using .NET Framework desktop.
+                                    </p><p>
+                                        Crystal report 2010 for viewing and printing the reports.
+                                    </p><p>
+                                        Used SQL Server 2010 as a data repository, used ADO.NET writing data access classes, stored
+                                        procedures, triggers, views to capture and modify data.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="section px-2 px-lg-4 pb-4 pt-5 mb-5" id="contact">
+                <div class="container-narrow">
+                    <div class="text-center mb-5">
+                        <h2 class="marker marker-center">Contact Me</h2>
+                    </div>
+                    <div class="row">
+                        <!--<div class="col-md-6" data-aos="zoom-in" data-aos-delay="100">
+                            <div class="bg-light my-2 p-3 pt-2">
+                                <form action="https://formspree.io/your@email.com"
+                                      method="POST">
+                                    <div class="form-group my-2">
+                                        <label for="name" class="form-label fw-bolder">Name</label>
+                                        <input class="form-control" type="text" id="name" name="name" required>
+                                    </div>
+                                    <div class="form-group my-2">
+                                        <label for="email" class="form-label fw-bolder">Email</label>
+                                        <input class="form-control" type="email" id="email" name="_replyto" required>
+                                    </div>
+                                    <div class="form-group my-2">
+                                        <label for="message" class="form-label fw-bolder">Message</label>
+                                        <textarea class="form-control" style="resize: none;" id="message" name="message" rows="4" required></textarea>
+                                    </div>
+                                    <button class="btn btn-primary mt-2" type="submit">Send</button>
+                                </form>
+                            </div>
+                        </div>-->
+                        <div class="col-md-10" data-aos="fade-left" data-aos-delay="300">
+                            <div class="mt-3 px-1">
+                                <div class="h5">Let’s talk how I can help you!</div>
+                                <p>If you like my work and want to avail my services then drop me a message using the contact form. </p>
+                                <p>Or get in touch using my email or my contact number.</p>
+                                <p>See you!</p>
+                            </div>
+                            <div class="mt-53 px-1">
+                                <div class="row">
+                                    <div class="col-sm-2">
+                                        <div class="pb-1">Email:</div>
+                                    </div>
+                                    <div class="col-sm-10">
+                                        <div class="pb-1 fw-bolder">zeeshanhaneef@gmail.com</div>
+                                    </div>
+                                    <!--<div class="col-sm-2">
+                                        <div class="pb-1">Skype:</div>
+                                    </div>
+                                    <div class="col-sm-10">
+                                        <div class="pb-1 fw-bolder">username@skype.com</div>
+                                    </div>-->
+                                    <div class="col-sm-2">
+                                        <div class="pb-1">Phone:</div>
+                                    </div>
+                                    <div class="col-sm-10">
+                                        <div class="pb-1 fw-bolder">+92300-5230693</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <footer class="pt-4 pb-4 text-center bg-light">
+                <div class="container">
+                    <div class="my-3">
+                        <div class="h4">Zeeshan Haneef</div>
+                        <p>Senior .NET & Web Developer</p>
+                        <div class="social-nav">
+                            <nav role="navigation">
+                                <ul class="nav justify-content-center">
+                                    <li class="nav-item"><a class="nav-link" href="https://twitter.com/zeeshanhaneefse" title="Twitter"><i class="fab fa-twitter"></i><span class="menu-title sr-only">Twitter</span></a></li>
+                                    <li class="nav-item"><a class="nav-link" href="https://www.facebook.com/zeeshanhaneefse" title="Facebook"><i class="fab fa-facebook"></i><span class="menu-title sr-only">Facebook</span></a></li>
+                                    <li class="nav-item"><a class="nav-link" href="https://www.instagram.com/zeeshanhaneefse/" title="Instagram"><i class="fab fa-instagram"></i><span class="menu-title sr-only">Instagram</span></a></li>
+                                    <li class="nav-item"><a class="nav-link" href="https://www.linkedin.com/in/zeeshan-haneef/" title="LinkedIn"><i class="fab fa-linkedin"></i><span class="menu-title sr-only">LinkedIn</span></a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                    <div class="text-small text-secondary">
+                        <div class="mb-1">&copy; Super Folio. All rights reserved.</div>
+                        <div>
+                            <!-- Make sure to buy a license for the template before removing the line below. Buy license on https://templateflip.com/ -->Design - <a href="https://templateflip.com/" target="_blank">TemplateFlip</a>
+                        </div>
+                    </div>
+                </div>
+            </footer>
         </div>
-      </div>
-    </div>
-  </div>
-  <div class="wave-bg"></div>
-</header>
-<div class="section pt-4 px-3 px-lg-4" id="about">
-  <div class="container-narrow">
-    <div class="row">
-      <div class="col-md-6">
-        <h2 class="h4 my-2">Hello! I’m Zeeshan Haneef.</h2>
-        <p>Problem-solving .NET developer with 6+ years of commercial experience in using ASP.NET Core 3.1, ASP.NET MVC 3-5, C# to complete desktop and Web Apps for a range of business clients from POS, Finance, and health care domain. I am a quick learner and a team worker that gets the job done. I can easily capitalize on low hanging fruits and quickly maximize timely deliverables for real-time schemas.</p>
-        <div class="row mt-3">
-          <div class="col-sm-2">
-            <div class="pb-1">Age:</div>
-          </div>
-          <div class="col-sm-10">
-            <div class="pb-1 fw-bolder">28</div>
-          </div>
-          <div class="col-sm-2">
-            <div class="pb-1">Email:</div>
-          </div>
-          <div class="col-sm-10">
-            <div class="pb-1 fw-bolder">zeeshanhaneefse@gmail.com</div>
-          </div>
-          <!--<div class="col-sm-2">
-            <div class="pb-1">Skype:</div>
-          </div>
-          <div class="col-sm-10">
-            <div class="pb-1 fw-bolder">username@skype.com</div>
-          </div>-->
-          <div class="col-sm-2">
-            <div class="pb-1">Phone:</div>
-          </div>
-          <div class="col-sm-10">
-            <div class="pb-1 fw-bolder">+92300-5230693</div>
-          </div>
-          <div class="col-sm-2">
-            <div class="pb-1">Address:</div>
-          </div>
-          <div class="col-sm-10">
-            <div class="pb-1 fw-bolder">Islamabad, Pakistan</div>
-          </div>
-          <div class="col-sm-2">
-            <div class="pb-1">Staus:</div>
-          </div>
-          <div class="col-sm-10">
-            <div class="pb-1 fw-bolder">Available</div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-5 offset-md-1" data-aos="fade-left" data-aos-delay="100"><img class="avatar img-fluid mt-2" src="images/avatar_profile.jpg" width="400" height="400" alt="Zeeshan Haneef"/></div>
-    </div>
-  </div>
-</div>
-<div class="section px-3 px-lg-4 pt-5" id="services">
-  <div class="container-narrow">
-    <div class="text-center mb-5">
-      <h2 class="marker marker-center">My Services</h2>
-    </div>
-    <div class="text-center">
-      <p class="mx-auto mb-3" style="max-width:600px"> I offer services fit for any website or app. I can quickly maximize timely deliverables for real-time schemas.</p>
-    </div>
-    <div class="row py-3">
-      <div class="col-md-3 text-center" data-aos="fade-up" data-aos-delay="100"><img class="mb-2" src="images/services/web-design.svg" width="96" height="96" alt="web design"/>
-        <div class="h5">Web APIs</div>
-      </div>
-      <div class="col-md-3 text-center" data-aos="fade-up" data-aos-delay="200"><img class="mb-2" src="images/services/graphic-design.svg" width="96" height="96" alt="graphic design"/>
-        <div class="h5">Micro Services</div>
-      </div>
-      <div class="col-md-3 text-center" data-aos="fade-up" data-aos-delay="300"><img class="mb-2" src="images/services/ui-ux.svg" width="96" height="96" alt="ui-ux"/>
-        <div class="h5">Front-end Development</div>
-      </div>
-      <div class="col-md-3 text-center" data-aos="fade-up" data-aos-delay="400"><img class="mb-2" src="images/services/app-development.svg" width="96" height="96" alt="app development"/>
-        <div class="h5">App Development</div>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="section px-3 px-lg-4 pt-5" id="skills">
-  <div class="container-narrow">
-    <div class="text-center mb-5">
-      <h2 class="marker marker-center">My Skills</h2>
-    </div>
-    <div class="text-center">
-      <p class="mx-auto mb-3" style="max-width:600px">I am a quick learner and specialize in multitude of skills required for Web Application Development and Product Design</p>
-    </div>
-    <div class="bg-light p-3">
-      <div class="row">
-        <div class="col-md-5">
-          <div class="py-1">
-            <div class="d-flex text-small fw-bolder"><span class="me-auto">HTML</span><span>80%</span></div>
-            <div class="progress my-1">
-              <div class="progress-bar bg-primary" role="progressbar" data-aos="zoom-in-right" data-aos-delay="100" data-aos-anchor=".skills-section" style="width: 80%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-            </div>
-          </div>
-          <div class="py-1">
-            <div class="d-flex text-small fw-bolder"><span class="me-auto">CSS</span><span>70%</span></div>
-            <div class="progress my-1">
-              <div class="progress-bar bg-primary" role="progressbar" data-aos="zoom-in-right" data-aos-delay="200" data-aos-anchor=".skills-section" style="width: 70%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-            </div>
-          </div>
-          <div class="py-1">
-            <div class="d-flex text-small fw-bolder"><span class="me-auto">JavaScript</span><span>80%</span></div>
-            <div class="progress my-1">
-              <div class="progress-bar bg-primary" role="progressbar" data-aos="zoom-in-right" data-aos-delay="300" data-aos-anchor=".skills-section" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-            </div>
-          </div>
-          <div class="py-1">
-            <div class="d-flex text-small fw-bolder"><span class="me-auto">Angular</span><span>60%</span></div>
-            <div class="progress my-1">
-              <div class="progress-bar bg-primary" role="progressbar" data-aos="zoom-in-right" data-aos-delay="300" data-aos-anchor=".skills-section" style="width: 60%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-5 offset-md-2">
-          <div class="py-1">
-            <div class="d-flex text-small fw-bolder"><span class="me-auto">.NET</span><span>70%</span></div>
-            <div class="progress my-1">
-              <div class="progress-bar bg-primary" role="progressbar" data-aos="zoom-in-right" data-aos-delay="400" data-aos-anchor=".skills-section" style="width: 70%" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
-            </div>
-          </div>
-          <div class="py-1">
-            <div class="d-flex text-small fw-bolder"><span class="me-auto">.NET Core</span><span>70%</span></div>
-            <div class="progress my-1">
-              <div class="progress-bar bg-primary" role="progressbar" data-aos="zoom-in-right" data-aos-delay="500" data-aos-anchor=".skills-section" style="width: 70%" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
-            </div>
-          </div>
-          <div class="py-1">
-            <div class="d-flex text-small fw-bolder"><span class="me-auto">SQL</span><span>80%</span></div>
-            <div class="progress my-1">
-              <div class="progress-bar bg-primary" role="progressbar" data-aos="zoom-in-right" data-aos-delay="600" data-aos-anchor=".skills-section" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-            </div>
-          </div>
-          <div class="py-1">
-            <div class="d-flex text-small fw-bolder"><span class="me-auto">Entity Framework</span><span>70%</span></div>
-            <div class="progress my-1">
-              <div class="progress-bar bg-primary" role="progressbar" data-aos="zoom-in-right" data-aos-delay="600" data-aos-anchor=".skills-section" style="width: 70%" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="section px-2 px-lg-4 pt-5" id="portfolio">
-  <div class="container">
-    <div class="text-center mb-5">
-      <h2 class="marker marker-center">Portfolio </h2>
-    </div>
-    <div class="grid bp-gallery pb-3" data-aos="zoom-in-up" data-aos-delay="100">
-      <div class="grid-sizer"></div>
-      <div class="grid-item"><a href="https://dribbble.com">
-          <figure class="portfolio-item"><img src="images/portfolio/1-small.png" data-bp="images/portfolio/1.jpg"/>
-            <figcaption>
-              <h4 class="h5 mb-0">Web Design</h4>
-              <div>Dribbble.com</div>
-            </figcaption>
-          </figure></a></div>
-      <div class="grid-item"><a href="https://github.com">
-          <figure class="portfolio-item"><img src="images/portfolio/2-small.png" data-bp="images/portfolio/2.jpg" data-caption="Example of an optional caption."/>
-            <figcaption> 
-              <h4 class="h5 mb-0">Web Development</h4>
-              <div>GitHub.com</div>
-            </figcaption>
-          </figure></a></div>
-      <div class="grid-item"><a href="https://soundcloud.com/">
-          <figure class="portfolio-item"><img src="images/portfolio/3-small.png" data-bp="images/portfolio/3.jpg" data-caption="Example of an optional caption."/>
-            <figcaption> 
-              <h4 class="h5 mb-0">Audio Mixing</h4>
-              <div>Soundcloud.com</div>
-            </figcaption>
-          </figure></a></div>
-      <div class="grid-item"><a href="https://www.adobe.com/">
-          <figure class="portfolio-item"><img src="images/portfolio/4-small.png" data-bp="images/portfolio/4.jpg"/>
-            <figcaption>
-              <h4 class="h5 mb-0">Video Editing</h4>
-              <div>Adobe After Effects</div>
-            </figcaption>
-          </figure></a></div>
-      <div class="grid-item"><a href="https://www.adobe.com/">
-          <figure class="portfolio-item"><img src="images/portfolio/5-small.png" data-bp="images/portfolio/5.jpg"/>
-            <figcaption>
-              <h4 class="h5 mb-0">Photography</h4>
-              <div>Adobe Photoshop</div>
-            </figcaption>
-          </figure></a></div>
-      <div class="grid-item"><a href="https://www.android.com/">
-          <figure class="portfolio-item"><img src="images/portfolio/6-small.png" data-bp="images/portfolio/6.jpg"/>
-            <figcaption>
-              <h4 class="h5 mb-0">App Development</h4>
-              <div>Android</div>
-            </figcaption>
-          </figure></a></div>
-      <div class="grid-item"><a href="https://flutter.dev/">
-          <figure class="portfolio-item"><img src="images/portfolio/7-small.png" data-bp="images/portfolio/7.jpg"/>
-            <figcaption>
-              <h4 class="h5 mb-0">App Design</h4>
-              <div>Flutter</div>
-            </figcaption>
-          </figure></a></div>
-      <div class="grid-item"><a href="https://flutter.dev/">
-          <figure class="portfolio-item"><img src="images/portfolio/8-small.png" data-bp="images/portfolio/8.jpg"/>
-            <figcaption>
-              <h4 class="h5 mb-0">App Development</h4>
-              <div>Flutter</div>
-            </figcaption>
-          </figure></a></div>
-    </div>
-  </div>
-</div>
-<div class="section px-3 px-lg-4 pt-5" id="experience">
-  <div class="container-narrow">
-    <div class="text-center mb-5">
-      <h2 class="marker marker-center">Experience</h2>
-    </div>
-    <div class="row">
-      <div class="col-md-6">
-        <div class="card mb-3" data-aos="fade-right" data-aos-delay="100">
-          <div class="card-header px-3 py-2">
-            <div class="d-flex justify-content-between">
-              <div>
-                <h3 class="h5 mb-1">UI/UX Design</h3>
-                <div class="text-muted text-small">Designerr Inc. <small>(2012-2014)</small></div>
-              </div><img src="images/services/ui-ux.svg" width="48" height="48" alt="ui-ux"/>
-            </div>
-          </div>
-          <div class="card-body px-3 py-2">
-            <p>Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition.</p>
-            <p>Organically grow the holistic world view of disruptive innovation via workplace diversity and empowerment.</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6">
-        <div class="card mb-3" data-aos="fade-left" data-aos-delay="300">
-          <div class="card-header px-3 py-2">
-            <div class="d-flex justify-content-between">
-              <div>
-                <h3 class="h5 mb-1">App Development</h3>
-                <div class="text-muted text-small">MakeMyApp LLC. <small>(2015-2018)</small></div>
-              </div><img src="images/services/app-development.svg" width="48" height="48" alt="app development"/>
-            </div>
-          </div>
-          <div class="card-body px-3 py-2">
-            <p>Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition.</p>
-            <p>Organically grow the holistic world view of disruptive innovation via workplace diversity and empowerment.</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6">
-        <div class="card mb-3" data-aos="fade-right" data-aos-delay="200">
-          <div class="card-header px-3 py-2">
-            <div class="d-flex justify-content-between">
-              <div>
-                <h3 class="h5 mb-1">Web Design</h3>
-                <div class="text-muted text-small">Webbie LLC. <small>(2018-2020)</small></div>
-              </div><img src="images/services/web-design.svg" width="48" height="48" alt="web design"/>
-            </div>
-          </div>
-          <div class="card-body px-3 py-2">
-            <p>Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition.</p>
-            <p>Organically grow the holistic world view of disruptive innovation via workplace diversity and empowerment.</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6">
-        <div class="card mb-3" data-aos="fade-left" data-aos-delay="400">
-          <div class="card-header px-3 py-2">
-            <div class="d-flex justify-content-between">
-              <div>
-                <h3 class="h5 mb-1">Full Stack Development</h3>
-                <div class="text-muted text-small">Coder Inc. <small>(2020-2021)</small></div>
-              </div><img src="images/services/full-stack.svg" width="48" height="48" alt="full stack"/>
-            </div>
-          </div>
-          <div class="card-body px-3 py-2">
-            <p>Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition.</p>
-            <p>Organically grow the holistic world view of disruptive innovation via workplace diversity and empowerment.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="section px-3 px-lg-4 pt-5" id="testimonials">
-  <div class="container-narrow">
-    <div class="text-center mb-5">
-      <h2 class="marker marker-center">Client Testimonials</h2>
-    </div>
-    <div class="row"> 
-      <div class="col-md-6 mb-5" data-aos="fade-right" data-aos-delay="100">
-        <div class="d-flex ms-md-3"><span><i class="fas fa-2x fa-quote-left"></i></span><span class="m-2">Zeeshan displays exemplary professionalism and is able to take on challenges. He learns quickly and is an asset to any team.</span></div>
-        <div class="d-flex justify-content-end align-items-end">
-          <div class="text-end me-2">
-            <div class="fw-bolder">Aiyana</div>
-            <div class="text-small">CEO / Web Design Company</div>
-          </div><img class="me-md-3 rounded" src="images/testimonials/client1.jpg" width="96" height="96" alt="client 1"/>
-        </div>
-      </div>
-      <div class="col-md-6 mb-5" data-aos="fade-left" data-aos-delay="300">
-        <div class="d-flex ms-md-3"><span><i class="fas fa-2x fa-quote-left"></i></span><span class="m-2">Zeeshan displays exemplary professionalism and is able to take on challenges. He learns quickly and is an asset to any team.</span></div>
-        <div class="d-flex justify-content-end align-items-end">
-          <div class="text-end me-2">
-            <div class="fw-bolder">Alexander</div>
-            <div class="text-small">CEO / Web Design Company</div>
-          </div><img class="me-md-3 rounded" src="images/testimonials/client2.jpg" width="96" height="96" alt="client 1"/>
-        </div>
-      </div>
-      <div class="col-md-6 mb-5" data-aos="fade-right" data-aos-delay="200">
-        <div class="d-flex ms-md-3"><span><i class="fas fa-2x fa-quote-left"></i></span><span class="m-2">Zeeshan is a great co-worker and problem solver. He is quick to extend his helping hand and makes a good team player.</span></div>
-        <div class="d-flex justify-content-end align-items-end">
-          <div class="text-end me-2">
-            <div class="fw-bolder">Ariya</div>
-            <div class="text-small">Web Developer</div>
-          </div><img class="me-md-3 rounded" src="images/testimonials/client3.jpg" width="96" height="96" alt="client 1"/>
-        </div>
-      </div>
-      <div class="col-md-6 mb-5" data-aos="fade-left" data-aos-delay="400">
-        <div class="d-flex ms-md-3"><span><i class="fas fa-2x fa-quote-left"></i></span><span class="m-2">Zeeshan is a great co-worker and problem solver. He is quick to extend his helping hand and makes a good team player.</span></div>
-        <div class="d-flex justify-content-end align-items-end">
-          <div class="text-end me-2">
-            <div class="fw-bolder">Braiden</div>
-            <div class="text-small">Web Designer</div>
-          </div><img class="me-md-3 rounded" src="images/testimonials/client4.jpg" width="96" height="96" alt="client 1"/>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="section px-2 px-lg-4 pb-4 pt-5 mb-5" id="contact">
-  <div class="container-narrow">
-    <div class="text-center mb-5">
-      <h2 class="marker marker-center">Contact Me</h2>
-    </div>
-    <div class="row">
-      <div class="col-md-6" data-aos="zoom-in" data-aos-delay="100">
-        <div class="bg-light my-2 p-3 pt-2"><form action="https://formspree.io/your@email.com"
-    method="POST">
-    <div class="form-group my-2">
-      <label for="name" class="form-label fw-bolder">Name</label>
-      <input class="form-control" type="text" id="name" name="name" required>
-    </div>
-    <div class="form-group my-2">
-      <label for="email" class="form-label fw-bolder">Email</label>
-      <input class="form-control" type="email" id="email" name="_replyto" required>
-    </div>
-  <div class="form-group my-2">
-    <label for="message" class="form-label fw-bolder">Message</label>
-    <textarea class="form-control" style="resize: none;" id="message" name="message" rows="4" required></textarea>
-  </div>
-  <button class="btn btn-primary mt-2" type="submit">Send</button>
-</form>
-        </div>
-      </div>
-      <div class="col-md-6" data-aos="fade-left" data-aos-delay="300">
-        <div class="mt-3 px-1">
-          <div class="h5">Let’s talk how I can help you!</div>
-          <p>If you like my work and want to avail my services then drop me a message using the contact form. </p>
-          <p>Or get in touch using my email, skype or my contact number.</p>
-          <p>See you!</p>
-        </div>
-        <div class="mt-53 px-1">
-          <div class="row"> 
-            <div class="col-sm-2">
-              <div class="pb-1">Email:</div>
-            </div>
-            <div class="col-sm-10">
-              <div class="pb-1 fw-bolder">zeeshanhaneef@gmail.com</div>
-            </div>
-            <div class="col-sm-2">
-              <div class="pb-1">Skype:</div>
-            </div>
-            <div class="col-sm-10">
-              <div class="pb-1 fw-bolder">username@skype.com</div>
-            </div>
-            <div class="col-sm-2">
-              <div class="pb-1">Phone:</div>
-            </div>
-            <div class="col-sm-10">
-              <div class="pb-1 fw-bolder">+0718-111-0011</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<footer class="pt-4 pb-4 text-center bg-light">
-  <div class="container">
-    <div class="my-3">
-      <div class="h4">Zeeshan Haneef</div>
-      <p>Web Developer & Mobile Application Developer</p>
-      <div class="social-nav">
-        <nav role="navigation">
-          <ul class="nav justify-content-center">
-            <li class="nav-item"><a class="nav-link" href="https://twitter.com/templateflip" title="Twitter"><i class="fab fa-twitter"></i><span class="menu-title sr-only">Twitter</span></a></li>
-            <li class="nav-item"><a class="nav-link" href="https://www.facebook.com/templateflip" title="Facebook"><i class="fab fa-facebook"></i><span class="menu-title sr-only">Facebook</span></a></li>
-            <li class="nav-item"><a class="nav-link" href="https://www.instagram.com/templateflip" title="Instagram"><i class="fab fa-instagram"></i><span class="menu-title sr-only">Instagram</span></a></li>
-            <li class="nav-item"><a class="nav-link" href="https://www.linkedin.com/" title="LinkedIn"><i class="fab fa-linkedin"></i><span class="menu-title sr-only">LinkedIn</span></a></li>
-            <li class="nav-item"><a class="nav-link" href="https://www.behance.net/templateflip" title="Behance"><i class="fab fa-behance"></i><span class="menu-title sr-only">Behance</span></a></li>
-          </ul>
-        </nav>
-      </div>
-    </div>
-    <div class="text-small text-secondary">
-      <div class="mb-1">&copy; Super Folio. All rights reserved.</div>
-      <div>
-        <!-- Make sure to buy a license for the template before removing the line below. Buy license on https://templateflip.com/ -->Design - <a href="https://templateflip.com/" target="_blank">TemplateFlip</a></div>
-    </div>
-  </div>
-</footer></div>
     </div>
     <div id="scrolltop"><a class="btn btn-secondary" href="#top"><span class="icon"><i class="fas fa-angle-up fa-x"></i></span></a></div>
     <script src="./scripts/imagesloaded.pkgd.min.js?ver=1.2.0"></script>
@@ -489,5 +575,5 @@
     <script src="./scripts/bootstrap.bundle.min.js?ver=1.2.0"></script>
     <script src="./scripts/aos.min.js?ver=1.2.0"></script>
     <script src="./scripts/main.js?ver=1.2.0"></script>
-  </body>
+</body>
 </html>
